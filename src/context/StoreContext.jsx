@@ -31,16 +31,32 @@ const StoreContextProvider = (props) => {
     }
   }
 
+  // const getTotalCartAmount = () => {
+  //   let totalAmount = 0;
+  //   for (const item in cartItems) {
+  //     if (cartItems[item] > 0) {
+  //       let itemInfo = food_list.find((product) => product._id === item)
+  //       totalAmount += itemInfo.price * cartItems[item];
+  //     }
+  //   }
+  //   return totalAmount;
+  // }
+
   const getTotalCartAmount = () => {
     let totalAmount = 0;
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
-        let itemInfo = food_list.find((product) => product._id === item)
-        totalAmount += itemInfo.price * cartItems[item];
+        let itemInfo = food_list.find((product) => product._id === item);
+        if (itemInfo) {
+          totalAmount += itemInfo.price * cartItems[item];
+        } else {
+          console.warn(`Item with ID ${item} not found in food_list`);
+        }
       }
     }
     return totalAmount;
-  }
+  };
+  
 
   const fetchFoodList = async () => {
     const response = await axios.get(url + "/api/food/list");

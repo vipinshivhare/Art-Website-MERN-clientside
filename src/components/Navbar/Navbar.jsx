@@ -58,6 +58,8 @@ import { StoreContext } from "../../context/StoreContext";
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
   const navigate = useNavigate();
 
@@ -67,25 +69,54 @@ const Navbar = ({ setShowLogin }) => {
     navigate("/");
   };
 
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
-    <div className="navbar">
+    <div className={`navbar ${isScrolled ? 'floating' : ''}`}>
+      <div className="hamburger-menu" onClick={toggleMobileMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
       <Link to="/">
         <img src={assets.logo} alt="" className="logo" />
       </Link>
-      <ul className="navbar-menu">
-        <Link to="/" onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>
+      
+      <ul className={`navbar-menu ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}>
+        <Link to="/" onClick={() => {setMenu("home"); setIsMobileMenuOpen(false)}} 
+          className={menu === "home" ? "active" : ""}>
           home
         </Link>
-        <a href="#explore-menu" onClick={() => setMenu("menu")} className={menu === "menu" ? "active" : ""}>
+        <a href="#explore-menu" onClick={() => {setMenu("menu"); setIsMobileMenuOpen(false)}} 
+          className={menu === "menu" ? "active" : ""}>
           menu
         </a>
-        <a href="#app-download" onClick={() => setMenu("mobile-app")} className={menu === "mobile-app" ? "active" : ""}>
+        <a href="#app-download" onClick={() => {setMenu("mobile-app"); setIsMobileMenuOpen(false)}} 
+          className={menu === "mobile-app" ? "active" : ""}>
           mobile-app
         </a>
-        <a href="#footer" onClick={() => setMenu("contact-us")} className={menu === "contact-us" ? "active" : ""}>
+        <a href="#footer" onClick={() => {setMenu("contact-us"); setIsMobileMenuOpen(false)}} 
+          className={menu === "contact-us" ? "active" : ""}>
           contact us
         </a>
       </ul>
+
       <div className="navbar-right">
         <img src={assets.search_icon} alt="" />
         <div className="navbar-search-icon">

@@ -2,27 +2,26 @@ import React, { useState, useEffect } from "react";
 import "./Header.css";
 
 const images = [
-  "./Art_1.jpg",
-  "./Art_2.jpg",
-  "./Art_3.jpg",
-  "./Art_4.jpg",
-  "./Art_5.jpg",
-  "./Art_6.jpg",
-  "./Art_7.jpg",
-  "./Art_8.jpg",
-  "./Art_9.jpg",
-  "./Art_10.jpg",
-  "./Art_11.jpg",
-  "./Art_12.jpg",
-  "./Art_13.jpg",
-  "./Art_14.jpg",
-  "./Art_15.jpg",
-  "./Art_16.jpg",
-  "./Art_17.jpg",
-  "./Art_18.jpg",
-  "./Art_19.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282597/Art_1_bhmnjw.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282670/Art_2_s5styc.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282688/Art_3_gpqpla.png",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282703/Art_4_wwfwhb.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282712/Art_5_vf29kt.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282774/Art_6_euyu4x.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282779/Art_7_p6s1g6.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282802/Art_8_xzu8ie.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282816/Art_9_hlvuow.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282825/Art_10_yzvqmx.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282839/Art_11_ugv2ah.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282847/Art_12_nlldig.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282855/Art_13_ouwof8.png",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282865/Art_14_jkogom.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282868/Art_15_syps9x.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282875/Art_16_ju9cni.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282882/Art_17_il4rqh.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282893/Art_18_omlego.jpg",
+  "https://res.cloudinary.com/dgwfrstao/image/upload/v1753282902/Art_19_pmm5jr.png",
 ];
-
 const Header = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 

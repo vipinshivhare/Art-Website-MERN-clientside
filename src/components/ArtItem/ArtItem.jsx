@@ -73,7 +73,7 @@ const ArtItem = ({ id, name, price, description, image }) => {
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >
-         <img
+        <img
           ref={imageRef}
           className='food-item-image'
           src={url + "/images/" + image}

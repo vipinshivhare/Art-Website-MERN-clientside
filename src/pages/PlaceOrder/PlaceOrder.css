@@ -1,60 +1,114 @@
-.place-order{
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 50px;
-    margin-top: 100px;
+.place-order {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 100px;
+  padding: 20px;
+  box-sizing: border-box;
 }
-.place-order-left{
-    width: 100%;
-    max-width: max(30%,500px);
+
+.place-order-left {
+  width: 100%;
+  max-width: max(30%, 500px);
 }
-.place-order-left .tital{
-    font-size: 33px;
-    font-weight: 600;
-    margin-bottom: 50px;
+
+/* Corrected class name from .tital to .title */
+.place-order-left .title {
+  font-size: 33px;
+  font-weight: 600;
+  margin-bottom: 50px;
 }
-.place-order-left input{
-    margin-bottom: 50px;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #c5c5c5;
-    border-radius: 4px;
-    outline-color: tomato;
+
+.place-order-left input {
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+  outline-color: tomato;
 }
-.place-order-left .multi-fields{
-    display: flex;
-    gap: 10px;
+
+.place-order-left .multi-fields {
+  display: flex;
+  gap: 10px;
 }
-.place-order-right{
-    width: 100%;
-    max-width: max(40%,500px);
+
+.place-order-right {
+  width: 100%;
+  max-width: max(40%, 500px);
 }
-.place-order .cart-total button{
-    margin-top: 30px;
+
+.place-order .cart-total button {
+  margin-top: 30px;
 }
+
+/* Update the button styling */
+.use-address-button {
+  display: block;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  margin: 10px auto; /* A more balanced margin to sit below the map */
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+}
+
+/* Ensure the map container has enough bottom margin to prevent collision */
 .cart-map {
+  margin-top: 20px;
+  margin-bottom: 50px; /* Add bottom margin to push the button down */
+  width: 100%;
+  height: 300px;
+  border: 1px solid #ddd;
+}
+
+.use-address-button:hover {
+  background-color: #45a049;
+}
+
+/* Refined responsive design for a better user experience on small screens.
+*/
+@media (max-width: 768px) {
+  .place-order {
+    flex-direction: column;
+    /* Reduced margin-top to avoid large empty space on mobile */
     margin-top: 20px;
-    width: 100%;
-    height: 300px;
-    border: 1px solid #ddd;
+    gap: 30px;
+  }
+
+  .place-order-left,
+  .place-order-right {
+    max-width: 100%;
+  }
+
+  /* Corrected typo in the class name */
+  .place-order-left .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .place-order-left input {
+    margin-bottom: 15px;
+    padding: 8px;
+  }
+
+  .place-order-left .multi-fields {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cart-map {
+    height: 250px;
   }
 
   .use-address-button {
-    background-color: #4CAF50; 
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px 0; 
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease; 
+    /* Ensures button remains centered with consistent spacing */
+    margin: 20px auto;
   }
-  .use-address-button:hover {
-    background-color: #45a049; 
-  }
-  
+}

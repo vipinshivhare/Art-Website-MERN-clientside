@@ -9,6 +9,7 @@
     font-weight: 500;
     font-size: clamp(24px, 5vw, 36px);
     text-align: center;
+    margin-top: 20px;
 }
 .explore-menu-text{
     max-width: 60%;

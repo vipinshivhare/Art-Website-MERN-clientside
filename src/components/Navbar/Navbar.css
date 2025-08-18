@@ -16,8 +16,9 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 15px 40px;
+    height: 70px;
     display: flex;
+    padding: 0 40px;
     justify-content: space-between;
     align-items: center;
     transition: all 0.4s ease;
@@ -31,6 +32,23 @@
     );
     background-size: 200% 200%;
     animation: gradientAnimation 15s ease infinite;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+body {
+    padding-top: 70px; /* Same as navbar height */
+}
+
+@media (max-width: 900px) {
+    body {
+        padding-top: 80px; /* thoda zyada */
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding-top: 90px;
+    }
 }
 
 .navbar.floating {
@@ -446,6 +464,7 @@ body {
     .navbar {
         padding: 10px;
         gap: 10px;
+        height: 60px;
     }
     
     .navbar .logo {
@@ -484,6 +503,7 @@ body {
     .navbar {
         padding: 8px;
         gap: 8px;
+        height: 60px;
     }
     
     .navbar .logo {

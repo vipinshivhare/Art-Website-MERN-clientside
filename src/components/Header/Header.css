@@ -1,8 +1,9 @@
 .header {
     height: 34vw;
-    margin: 30px auto;
+    margin: 0 auto;
+    margin-top: 20px;
     background-size: cover;
-    background-position: center;
+    background-position: top-center;
     position: relative;
     transition: background-image 1s ease-in-out;
 } 
@@ -56,5 +57,17 @@
     }
     .header-contents button {
         padding: 1vw 2vw;
+    }
+}
+
+@media (max-width: 310px) {
+    .header-contents {
+        max-width: 2px;
+    }
+    .header-contents p {
+        display: none;
+    }
+    .header-contents button {
+        padding: none;
     }
 }

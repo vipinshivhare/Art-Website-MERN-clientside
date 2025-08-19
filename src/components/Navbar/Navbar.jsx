@@ -38,7 +38,7 @@ const Navbar = ({ setShowLogin }) => {
     setIsMobileMenuOpen(false);
   };
 
-  // Close mobile menu when clicking outside
+  // Close mobile menu when clicking outside or when interacting with other elements
   React.useEffect(() => {
     const handleClickOutside = (event) => {
       if (isMobileMenuOpen && !event.target.closest('.navbar-menu') && !event.target.closest('.hamburger-menu')) {
@@ -46,12 +46,21 @@ const Navbar = ({ setShowLogin }) => {
       }
     };
 
+    // Close mobile menu when focusing on input fields
+    const handleFocusIn = () => {
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
     if (isMobileMenuOpen) {
       document.addEventListener('click', handleClickOutside);
+      document.addEventListener('focusin', handleFocusIn);
     }
 
     return () => {
       document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('focusin', handleFocusIn);
     };
   }, [isMobileMenuOpen]);
 

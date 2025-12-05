@@ -65,13 +65,17 @@ const PlaceOrder = () => {
     if (window.google && window.google.maps) {
       initializeMap();
     } else {
-      const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDAW_cOQrZ0cVib2wUjMla4CFfGvD2p30c&libraries=places`; // Replace with your API key
-      script.async = true;
-      script.defer = true;
-      script.onload = initializeMap;
-      document.body.appendChild(script);
-    }
+    const script = document.createElement("script");
+    const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+    script.async = true;
+    script.defer = true;
+    script.onload = initializeMap;
+
+    document.body.appendChild(script);
+  }
+
   }, []);
 
   const onChangeHandler = (event) => {

@@ -19,5 +19,3 @@ module.exports = {
     ],
   },
 }
-// npm run dev - for frontend
-// npm run start - for backend
